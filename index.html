@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Walking in a Good Way: Preparing to Visit Sacred Land</title>
+<style>
+  :root {
+    --earth: #3D2B1F;
+    --soil: #6B4C35;
+    --tan: #C4A87A;
+    --gold: #C4A35A;
+    --sage: #7D8C6F;
+    --sky: #6B8FA3;
+    --cream: #F5EFE0;
+    --light: #FAF8F4;
+    --grass: #9AA882;
+    --red: #8B3A2A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--light);
+    color: var(--earth);
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--earth);
+    color: var(--cream);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--red), var(--gold), var(--sage), var(--sky));
+  }
+  header h1 {
+    font-size: 2rem;
+    font-weight: normal;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.4rem;
+  }
+  header .subtitle {
+    font-size: 1rem;
+    color: var(--tan);
+    font-style: italic;
+  }
+  header .hub-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--grass);
+    text-decoration: none;
+    border-bottom: 1px solid var(--grass);
+  }
+
+  /* ── Navigation tabs ── */
+  .tab-bar {
+    display: flex;
+    background: var(--soil);
+    overflow-x: auto;
+  }
+  .tab-btn {
+    flex: 1;
+    padding: 1rem 1.2rem;
+    background: none;
+    border: none;
+    color: var(--tan);
+    font-family: Georgia, serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-align: center;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    min-width: 140px;
+  }
+  .tab-btn:hover { background: rgba(255,255,255,0.08); }
+  .tab-btn.active {
+    color: var(--cream);
+    border-bottom-color: var(--gold);
+    background: rgba(255,255,255,0.06);
+  }
+  .tab-btn .session-num {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    margin-bottom: 0.2rem;
+  }
+
+  /* ── Tab panels ── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── Intro banner ── */
+  .intro-banner {
+    background: var(--earth);
+    color: var(--cream);
+    padding: 1.8rem 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .intro-banner .icon { font-size: 2.5rem; flex-shrink: 0; }
+  .intro-banner h2 { font-size: 1.4rem; font-weight: normal; margin-bottom: 0.4rem; color: var(--gold); }
+  .intro-banner p { font-size: 0.95rem; opacity: 0.9; }
+
+  /* ── Section containers ── */
+  .content-wrap { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  .section-block {
+    background: white;
+    border-radius: 6px;
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    border-left: 4px solid var(--sage);
+  }
+  .section-block.accent-gold { border-left-color: var(--gold); }
+  .section-block.accent-sky { border-left-color: var(--sky); }
+  .section-block.accent-red { border-left-color: var(--red); }
+
+  .section-block h3 {
+    font-size: 1.15rem;
+    color: var(--soil);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* ── Pull quotes ── */
+  .pull-quote {
+    border-left: 4px solid var(--gold);
+    background: var(--cream);
+    padding: 1rem 1.4rem;
+    margin: 1.2rem 0;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--earth);
+  }
+  .pull-quote cite {
+    display: block;
+    font-style: normal;
+    font-size: 0.8rem;
+    color: var(--soil);
+    margin-top: 0.4rem;
+  }
+
+  /* ── Jeff's journey callout ── */
+  .jeff-story {
+    background: #EFF4F0;
+    border: 1px solid var(--grass);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.2rem 0;
+  }
+  .jeff-story .jeff-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--sage);
+    margin-bottom: 0.4rem;
+    font-family: Arial, sans-serif;
+  }
+
+  /* ── Timeline ── */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.4rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--tan);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.2rem;
+    cursor: pointer;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.7rem;
+    top: 0.35rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--tan);
+  }
+  .timeline-item .year {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--red);
+    font-family: Arial, sans-serif;
+  }
+  .timeline-item .event { font-size: 0.95rem; }
+  .timeline-item .detail {
+    display: none;
+    margin-top: 0.4rem;
+    font-size: 0.88rem;
+    color: var(--soil);
+    border-top: 1px solid #eee;
+    padding-top: 0.4rem;
+  }
+  .timeline-item.open .detail { display: block; }
+  .timeline-item:hover .event { color: var(--red); }
+
+  /* ── Protocol flip cards ── */
+  .protocol-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 0.8rem;
+  }
+  .flip-card {
+    height: 160px;
+    perspective: 800px;
+    cursor: pointer;
+  }
+  .flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+  .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+  .flip-front, .flip-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 6px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .flip-front {
+    background: var(--earth);
+    color: var(--cream);
+    text-align: center;
+  }
+  .flip-front .card-icon { font-size: 2rem; margin-bottom: 0.4rem; }
+  .flip-front .card-title { font-size: 0.95rem; }
+  .flip-front .tap-hint { font-size: 0.7rem; color: var(--tan); margin-top: 0.5rem; }
+  .flip-back {
+    background: var(--cream);
+    color: var(--earth);
+    border: 2px solid var(--gold);
+    transform: rotateY(180deg);
+    font-size: 0.88rem;
+  }
+  .flip-back .why { font-size: 0.75rem; color: var(--sage); margin-top: 0.4rem; font-style: italic; }
+
+  /* ── Queries ── */
+  .query-list { list-style: none; }
+  .query-list li {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 0.7rem;
+    font-style: italic;
+    position: relative;
+    padding-left: 2.2rem;
+  }
+  .query-list li::before {
+    content: '?';
+    position: absolute;
+    left: 0.7rem;
+    top: 0.9rem;
+    font-size: 1rem;
+    color: var(--gold);
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  /* ── Preparation checklist ── */
+  .checklist { list-style: none; }
+  .checklist li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    cursor: pointer;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--tan);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+  }
+  .checklist li.checked .check-box {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: white;
+  }
+  .checklist li.checked span { text-decoration: line-through; color: #999; }
+
+  /* ── Action items ── */
+  .action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: 0.8rem;
+  }
+  .action-card {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 1.2rem;
+    border-top: 3px solid var(--sage);
+  }
+  .action-card h4 { color: var(--soil); margin-bottom: 0.4rem; font-size: 0.95rem; }
+  .action-card p { font-size: 0.85rem; }
+  .action-card a { color: var(--sky); }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.4rem; }
+    .intro-banner { flex-direction: column; gap: 0.8rem; }
+    .intro-banner .icon { font-size: 1.8rem; }
+  }
+
+  /* ── Opening landing ── */
+  #landing {
+    background: linear-gradient(180deg, #3D2B1F 0%, #6B4C35 60%, #9AA882 100%);
+    color: var(--cream);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  #landing h2 { font-size: 1.6rem; font-weight: normal; margin-bottom: 1rem; }
+  #landing .land-text { max-width: 600px; margin: 0 auto 2rem; font-size: 1rem; opacity: 0.9; }
+  .start-btn {
+    background: var(--gold);
+    color: var(--earth);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .start-btn:hover { background: var(--tan); }
+
+  .land-acknowledgment {
+    background: rgba(0,0,0,0.3);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    max-width: 600px;
+    margin: 2rem auto 0;
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: left;
+  }
+
+  /* ── Helpers ── */
+  .text-sm { font-size: 0.88rem; }
+  .mt-1 { margin-top: 0.8rem; }
+  .tag {
+    display: inline-block;
+    background: var(--earth);
+    color: var(--tan);
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  footer {
+    background: var(--earth);
+    color: var(--tan);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.82rem;
+    margin-top: 3rem;
+  }
+  footer a { color: var(--grass); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Walking in a Good Way</h1>
+  <div class="subtitle">A Three-Part Course for Non-Native Visitors to Sacred Land</div>
+  <div class="subtitle" style="margin-top:0.3rem">Prepared for Quaker Communities · Grounded in Indigenous Teachings</div>
+  <a href="https://www.greatplainsaction.org" target="_blank" class="hub-link">In partnership with the Great Plains Action Society Urban Resilience Hub, Iowa City ↗</a>
+</header>
+
+<!-- Tab bar -->
+<nav class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('intro')">
+    <span class="session-num">Overview</span>
+    About This Course
+  </button>
+  <button class="tab-btn" onclick="showTab('s1')">
+    <span class="session-num">Session One</span>
+    Preparing the Ground
+  </button>
+  <button class="tab-btn" onclick="showTab('s2')">
+    <span class="session-num">Session Two</span>
+    Being in the Place
+  </button>
+  <button class="tab-btn" onclick="showTab('s3')">
+    <span class="session-num">Session Three</span>
+    Carrying It Forward
+  </button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     OVERVIEW
+═══════════════════════════════════════════════════════ -->
+<div id="intro" class="tab-panel active">
+  <div id="landing">
+    <h2>"Land is the only thing that is real."</h2>
+    <p style="color:var(--tan); font-size:0.85rem; margin-bottom:1.5rem">— Sikowis Nobiss, Cree/Saulteaux, founder of the Great Plains Action Society</p>
+    <div class="land-text">
+      This course prepares non-Native people — particularly those in Quaker communities — to visit
+      sacred and community land in a good way. It covers history we must know, protocols we must
+      practice, and relationships we must sustain.
+    </div>
+    <button class="start-btn" onclick="showTab('s1')">Begin with Session One →</button>
+    <div class="land-acknowledgment">
+      <strong>A note on land acknowledgment:</strong> Iowa City sits on the unceded territory of the
+      Meskwaki (Sac and Fox), Baxoje (Iowa Nation), and Yankton Sioux peoples — among others.
+      Acknowledging this is a beginning, not an end. This course asks us to go much further.
+    </div>
+  </div>
+
+  <div class="content-wrap">
+    <div class="section-block accent-gold">
+      <h3>📋 How to Use This Course</h3>
+      <p>This is a <strong>three-session course</strong> designed for adult education in Quaker
+      meetings, youth groups, or any community of faith preparing for a visit to Indigenous community
+      land. Each session stands alone but gains depth when taken in sequence.</p>
+      <div class="pull-quote" style="margin-top:1rem">
+        The sessions follow a natural arc: <em>Before you go · While you're there · After you return.</em>
+        Each session includes history, teachings, reflection queries, and a connection to the work
+        happening at the <strong>Great Plains Action Society Urban Resilience Hub</strong> in
+        Iowa City, Iowa.
+      </div>
+      <p class="text-sm mt-1">
+        <strong>Format:</strong> Each session is designed for 60–90 minutes, though they can be
+        expanded for retreats. This digital guide works well projected during group sessions, or
+        explored individually beforehand.
+      </p>
+    </div>
+
+    <div class="section-block">
+      <h3>🌾 The Great Plains Action Society Urban Resilience Hub</h3>
+      <p>In the southside of Iowa City, at 810 Maiden Lane, the Great Plains Action Society (GPAS) is
+      building something rare: an urban, Indigenous-led community hub on land they own.</p>
+      <div class="pull-quote">
+        "We're building a micro-community. Like a Petri dish growing until we fill the entire area… until we fill the entire world."
+        <cite>— Sikowis Nobiss, Little Village, March 2026</cite>
+      </div>
+      <p class="text-sm">The hub will include a healing sanctuary, teaching kitchen, gathering area,
+      classrooms, mutual aid garden, and an earthlodge. The Spring Equinox 2026 ceremony —
+      marked by the Buffalo Eagle Singers, Ioway Dancers, First Foods, and a land blessing —
+      opened this space in a good way. It is open to all, with a particular focus on people
+      historically pushed to the margins: Indigenous communities, people of color, women,
+      LGBTQ and Two-Spirit people, disabled people, and migrants.</p>
+    </div>
+
+    <div class="section-block accent-sky">
+      <h3>🕊 Why Quakers? Why Now?</h3>
+      <p>Quakers hold testimonies of <em>Integrity</em>, <em>Equality</em>, and <em>Community</em>.
+      But our history with Native peoples demands we look honestly at what we have done — not just
+      what we have believed. Quakers ran more than 30 Indian boarding schools. We strongly supported
+      President Grant's 1869 "Peace Policy," which aimed to erase Indigenous cultures by separating
+      children from their families.</p>
+      <p class="mt-1">At the same time, contemporary Quakers are among those working hardest to repair
+      these harms — through the "Toward Right Relationship with Native Peoples" program, through
+      formal apologies, and through organizations like the Decolonial Repair Network.</p>
+      <p class="mt-1">This course sits in that tension: honest about past harm, committed to present repair.</p>
+    </div>
+
+    <div class="section-block accent-red">
+      <h3>🧭 One Non-Native Person's Path: Jeff Kisling</h3>
+      <p>Throughout this course, we follow the story of one Quaker activist from Iowa who has spent
+      years building relationships with Indigenous communities — not as a hero's journey, but as a
+      model of what is possible when non-Natives show up with humility and commitment over time.</p>
+      <div class="jeff-story">
+        <div class="jeff-label">Jeff's Journey · A thread through all three sessions</div>
+        Jeff Kisling is a Quaker who has participated in the First Nation–Farmer Climate Unity March
+        (2018), worked with Des Moines Mutual Aid for three years alongside Ronnie James, and joined
+        the planning committee of the Decolonial Repair Network (DRN). He has been involved in work
+        projects at the new Resilience Hub in Iowa City. His path shows how a single relationship —
+        one march, one conversation, one afternoon of work — can grow into a lifetime of commitment.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SESSION ONE
+═══════════════════════════════════════════════════════ -->
+<div id="s1" class="tab-panel">
+  <div class="intro-banner">
+    <div class="icon">🌱</div>
+    <div>
+      <h2>Session One: Preparing the Ground</h2>
+      <p>Before you go. What we must know, feel, and do before crossing onto sacred land as guests.</p>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- Opening -->
+    <div class="pull-quote" style="font-size:1.15rem; border-left-color:var(--red);">
+      "For me, it seemed really important to reckon with my own family's history as settlers.
+       Through this network, I've been able to know how to ask the right questions a little better
+       and turn white guilt into reconnection to my family's white roots."
+      <cite>— Clayton Lyons, Decolonial Repair Network gathering, July 2025</cite>
+    </div>
+
+    <!-- Historical truth-telling -->
+    <div class="section-block accent-red">
+      <h3>📜 The Mirror We Must Look Into: Quaker History with Native Peoples</h3>
+      <p class="text-sm" style="margin-bottom:1rem">
+        Tap any item below to learn more. Honesty about this history is the first step
+        in visiting sacred land with integrity.
+      </p>
+      <div class="timeline">
+
+        <div class="timeline-item" onclick="toggleTimeline(this)">
+          <div class="year">1796</div>
+          <div class="event">First Quaker schools for Native children established</div>
+          <div class="detail">Baltimore Friends established one of the first Quaker missions among the
+          Oneida Nation. From the beginning, "civilizing" Native peoples was inseparable from erasing
+          their culture. Quaker intentions were often described as benevolent — but the harm was real.</div>
+        </div>
+
+        <div class="timeline-item" onclick="toggleTimeline(this)">
+          <div class="year">1819</div>
+          <div class="event">Indian Civilization Act — Quakers receive federal funding</div>
+          <div class="detail">Congress passed the Indian Civilization Act, authorizing the federal
+          government to fund religious organizations to "civilize" Native peoples. Quakers were
+          prominent recipients, running day schools and boarding schools on Indigenous lands.</div>
+        </div>
+
+        <div class="timeline-item" onclick="toggleTimeline(this)">
+          <div class="year">1869</div>
+          <div class="event">Grant's "Peace Policy" — Quakers given oversight of Native agencies</div>
+          <div class="detail">Quakers were strong supporters of President Grant's "Peace Policy," which
+          placed Christian denominations in charge of Native American reservations to accelerate
+          assimilation. This policy gave rise to the boarding school system under the philosophy
+          "Kill the Indian, Save the Man."</div>
+        </div>
+
+        <div class="timeline-item" onclick="toggleTimeline(this)">
+          <div class="year">1870s–1960s</div>
+          <div class="event">The boarding school era: over 500 schools, thousands of children</div>
+          <div class="detail">The federal government, with the active support of Quakers and other
+          Christian bodies, operated a system of boarding schools designed to permanently separate
+          Indigenous children from their families, tribal nations, faith, culture, and identity.
+          Quakers ran at least 30 of these schools. Children faced forced labor, physical punishment,
+          and the prohibition of their languages and ceremonies.</div>
+        </div>
+
+        <div class="timeline-item" onclick="toggleTimeline(this)">
+          <div class="year">2018</div>
+          <div class="event">First Nation–Farmer Climate Unity March, Iowa</div>
+          <div class="detail">A small group of Native and non-Native people walked 94 miles along the
+          path of the Dakota Access Pipeline, from Des Moines to Fort Dodge, Iowa — Sept. 1–8, 2018.
+          The eight-day walk was about something radical: listening. "The purpose was to spend the
+          8 days sharing stories with each other so we could work on things of common concern.
+          That worked extremely well." — Jeff Kisling</div>
+        </div>
+
+        <div class="timeline-item" onclick="toggleTimeline(this)">
+          <div class="year">2022</div>
+          <div class="event">Alaska Quakers formally apologize to Alaska Native communities</div>
+          <div class="detail">In a landmark act, Alaska Quakers formally apologized to Alaska Native
+          communities for the residential schools they operated — schools that forcibly assimilated
+          and abused Indigenous children, separated them from their families, and caused
+          intergenerational trauma. This was one of the first formal Quaker apologies of its kind.</div>
+        </div>
+
+        <div class="timeline-item" onclick="toggleTimeline(this)">
+          <div class="year">2023</div>
+          <div class="event">Honor Native Land Fund launches in Iowa</div>
+          <div class="detail">The Decolonial Repair Network launched the Honor Native Land Fund,
+          initially focused on supporting the Great Plains Action Society's Urban Resilience Hub
+          in Iowa City. The fund represents a shift "beyond land acknowledgments" to practical
+          acts of repair — rematriating land to Indigenous stewardship.</div>
+        </div>
+
+        <div class="timeline-item" onclick="toggleTimeline(this)">
+          <div class="year">2026</div>
+          <div class="event">Spring Equinox opens the Resilience Hub in Iowa City</div>
+          <div class="detail">On March 21, 2026, a land blessing ceremony at 810 Maiden Lane, Iowa City
+          — with the Buffalo Eagle Singers, Ioway Dancers, prayers, and a First Foods meal — opened
+          the Great Plains Action Society's new community hub. "It wasn't necessarily a grand opening,"
+          said Sikowis Nobiss. "It was the beginning of us in our space starting in a good way."</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Whose land -->
+    <div class="section-block">
+      <h3>🗺 Whose Land Are We Standing On?</h3>
+      <p>Iowa City and the surrounding region sit on lands with deep Indigenous history.
+      Before visiting any site, know this land belongs to living Nations, not just history:</p>
+      <ul style="margin:0.8rem 0 0 1.2rem; font-size:0.95rem;">
+        <li style="margin-bottom:0.5rem"><strong>Meskwaki (Sac and Fox):</strong> Still present in Iowa today. The Meskwaki Settlement near Tama is the only land in Iowa owned by Indigenous people.</li>
+        <li style="margin-bottom:0.5rem"><strong>Baxoje (Iowa Nation):</strong> Original inhabitants of Iowa. Removed by treaty to Kansas and Oklahoma, though connections to the land remain.</li>
+        <li style="margin-bottom:0.5rem"><strong>Yankton Sioux:</strong> Among the many Sioux nations with historical presence in Iowa territory.</li>
+      </ul>
+      <div class="pull-quote" style="margin-top:1rem">
+        "We build power through community. And community is what was taken from us."
+        <cite>— Sikowis Nobiss, Little Village, March 2026</cite>
+      </div>
+    </div>
+
+    <!-- Jeff's story connector -->
+    <div class="section-block accent-gold">
+      <h3>🧭 Jeff's Journey: How It Started</h3>
+      <div class="jeff-story">
+        <div class="jeff-label">Jeff's Story · Session One</div>
+        <p>In September 2018, Jeff Kisling walked 94 miles alongside Native farmers, activists, and
+        allies along the route of the Dakota Access Pipeline. He didn't go as an expert. He went
+        to listen. "The purpose was to spend the 8 days sharing stories with each other so we could
+        work on things of common concern." The march introduced him to relationships that would
+        lead him — years later — to the planning committee of the Decolonial Repair Network and to
+        volunteer work at the Resilience Hub in Iowa City.</p>
+        <p style="margin-top:0.7rem; font-style:italic; font-size:0.9rem;">The first step was not
+        a grand gesture. It was showing up to walk.</p>
+      </div>
+    </div>
+
+    <!-- Preparation checklist -->
+    <div class="section-block accent-sky">
+      <h3>✅ How to Prepare Before You Go</h3>
+      <p class="text-sm" style="margin-bottom:0.8rem">Click to check off each step as you complete it.</p>
+      <ul class="checklist" id="prep-list">
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Learn whose land you are visiting — research the Nations with historical and current ties to that place.</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Ask permission and confirm the invitation. Do not visit without being genuinely welcomed.</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Research that community's specific protocols — they vary between Nations. Ask if you're unsure.</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Prepare a gift to bring. Tobacco, food, or a monetary contribution are commonly appropriate. Ask in advance what is welcome.</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Set a clear intention: "I come to listen and to learn, not to teach or evaluate."</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Talk with your group about the history of Quakers and Native peoples. Do this <em>before</em> you go — not during.</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Leave your schedule loose. Sacred time is not clock time. Plan to wait, and plan to stay longer than expected.</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Brief younger participants or those new to this: what they may see, hear, or be invited to do.</span></li>
+        <li onclick="toggleCheck(this)"><div class="check-box">✓</div><span>Ask yourself honestly: What do I hope to get from this? Check that this is not a transaction.</span></li>
+      </ul>
+    </div>
+
+    <!-- Session 1 queries -->
+    <div class="section-block">
+      <h3>🌀 Queries for Reflection · Session One</h3>
+      <p class="text-sm" style="margin-bottom:0.8rem">Use these queries for silent reflection, journaling, or group discussion in the manner of Friends.</p>
+      <ul class="query-list">
+        <li>What is my family's relationship to the land we live on now? Do I know who lived here before us?</li>
+        <li>What do I hope to receive from this visit? What am I prepared to give — in time, presence, and resources?</li>
+        <li>How do I hold the complexity that Quakers both caused great harm to Native peoples <em>and</em> are among those working hardest for repair today?</li>
+        <li>The Quaker testimony of Integrity calls us to be honest even when the truth is uncomfortable. What truth about my own history have I been avoiding?</li>
+        <li>What is the difference between "helping" Indigenous communities and walking alongside them as a peer?</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SESSION TWO
+═══════════════════════════════════════════════════════ -->
+<div id="s2" class="tab-panel">
+  <div class="intro-banner" style="background:var(--soil);">
+    <div class="icon">🥁</div>
+    <div>
+      <h2>Session Two: Being in the Place</h2>
+      <p>How to be present on sacred land. Listening, participating, and respecting what you encounter.</p>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <div class="pull-quote" style="font-size:1.1rem; border-left-color:var(--earth);">
+      "You can't just sit down and hit the drum. You gotta be respectful of that drum."
+      <cite>— Ukeegray (Nate Scates), Buffalo Eagle Singers, GPAS Spring Equinox, 2026</cite>
+    </div>
+
+    <!-- Entryway teaching -->
+    <div class="section-block accent-red">
+      <h3>🚪 The Entryway Teaching</h3>
+      <p>Many Indigenous traditions practice the "entryway ceremony" when visiting another Nation's
+      territory. You announce yourself. You come singing — not surprising people, but
+      allowing them to know you are arriving in peace. You cleanse yourself of hardship or
+      negative energy before crossing the threshold, so you do not bring it into that space.
+      You come with gifts, and you come asking permission.</p>
+      <div class="pull-quote" style="margin-top:1rem">
+        As a non-Native visitor, you are unlikely to know the specific songs or ceremonies.
+        But the <em>spirit</em> of the entryway teaching applies: arrive with intention and humility,
+        not as a consumer arriving for a service.
+      </div>
+      <p class="text-sm mt-1">At the Resilience Hub in Iowa City, Sikowis Nobiss opened the Spring
+      Equinox by saying: "It was the beginning of us in our space starting in a good way."
+      That phrase — <em>starting in a good way</em> — is the heart of this session.</p>
+    </div>
+
+    <!-- Listening as sacred practice -->
+    <div class="section-block">
+      <h3>👂 Listening as Sacred Practice</h3>
+      <p>Quaker worship is built on the practice of gathered waiting — holding silence until
+      something rises that needs to be spoken. This is, perhaps, the best preparation for
+      visiting Indigenous community spaces. The skill is the same: resist the urge to fill
+      silence. Sit with discomfort. Trust that what comes from the other person has value
+      you cannot manufacture yourself.</p>
+      <div class="pull-quote">
+        "There's no competition in the circle. That dance is for everyone."
+        <cite>— Christina Wedner, dancer at GPAS Spring Equinox, 2026</cite>
+      </div>
+      <p class="mt-1">The circle — in ceremony, in talking circles, in round dances — is a teaching
+      about equality and relation. No one is above or below. You are a participant in something
+      larger than your own story.</p>
+      <div class="jeff-story" style="margin-top:1rem">
+        <div class="jeff-label">Jeff's Story · Session Two</div>
+        During work sessions at the Resilience Hub, Jeff has learned that showing up to work
+        — to pull weeds, move materials, share a meal — is its own form of listening. The relationship
+        is built not in presentations or ceremonies alone, but in the ordinary work of being present
+        over time.
+      </div>
+    </div>
+
+    <!-- Protocol cards -->
+    <div class="section-block accent-gold">
+      <h3>🃏 Protocol Cards · Tap to flip each card</h3>
+      <p class="text-sm" style="margin-bottom:1rem">These protocols are rooted in authentic Indigenous teachings and in the specific context of the GPAS Resilience Hub. Protocols vary between Nations — always ask when in doubt.</p>
+      <div class="protocol-grid">
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">📸</div>
+              <div class="card-title">Photography</div>
+              <div class="tap-hint">tap to flip</div>
+            </div>
+            <div class="flip-back">
+              <strong>Ask permission before every photo.</strong> Never photograph ceremony, sacred items, or individuals without explicit consent. When in doubt, put the camera away.
+              <div class="why">Why: images can be shared and used without consent, stripping sacred practices of their context and power.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">🪶</div>
+              <div class="card-title">Sacred Items</div>
+              <div class="tap-hint">tap to flip</div>
+            </div>
+            <div class="flip-back">
+              <strong>Do not touch sacred items</strong> — drums, feathers, medicine bundles — unless explicitly invited to do so. Observe, don't handle.
+              <div class="why">Why: sacred items carry spiritual responsibility. Handling them without invitation can cause harm to both the item and the handler.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">🌿</div>
+              <div class="card-title">Smudging</div>
+              <div class="tap-hint">tap to flip</div>
+            </div>
+            <div class="flip-back">
+              <strong>Participate if you feel genuinely led.</strong> It is also acceptable to respectfully decline. Do not perform participation to appear open-minded.
+              <div class="why">Why: smudging is a spiritual cleansing practice. Authentic participation means entering it sincerely, not for show.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">🥁</div>
+              <div class="card-title">The Drum</div>
+              <div class="tap-hint">tap to flip</div>
+            </div>
+            <div class="flip-back">
+              <strong>Observe and receive drum singing with reverence.</strong> Do not touch a drum without invitation. Respond inwardly; you are in the presence of prayer.
+              <div class="why">"You can't just sit down and hit the drum. You gotta be respectful of that drum." — Nate Scates</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">🍲</div>
+              <div class="card-title">Food & Meals</div>
+              <div class="tap-hint">tap to flip</div>
+            </div>
+            <div class="flip-back">
+              <strong>Accept food that is offered, with gratitude.</strong> First Foods (pre-colonial, traditional foods) are ceremonial as well as nourishing. Receive them as a gift.
+              <div class="why">Sharing food is an act of kinship and trust. Refusing without a genuine allergy can be a slight.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">📵</div>
+              <div class="card-title">Phone & Devices</div>
+              <div class="tap-hint">tap to flip</div>
+            </div>
+            <div class="flip-back">
+              <strong>Put your phone away during ceremony and teachings.</strong> No texting, no calls, no social media. Your full attention is the most basic form of respect.
+              <div class="why">Divided attention signals that you believe something elsewhere matters more than what is happening here.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">🤫</div>
+              <div class="card-title">Silence</div>
+              <div class="tap-hint">tap to flip</div>
+            </div>
+            <div class="flip-back">
+              <strong>Be comfortable in silence.</strong> Indigenous ceremony often involves long pauses that carry meaning. Do not try to fill them. Let them work on you.
+              <div class="why">As Quakers, we know that the most important things can arrive in silence. This is a place where that practice is essential.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <div class="card-icon">🌀</div>
+              <div class="card-title">Asking Questions</div>
+              <div class="tap-hint">tap to flip</div>
+            </div>
+            <div class="flip-back">
+              <strong>Ask, don't assume.</strong> If you don't understand something, ask respectfully, privately, and at an appropriate moment. Never ask during ceremony.
+              <div class="why">Assumptions and immediate questions can interrupt the flow of what is happening. Let the experience unfold, then ask.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- At the Hub -->
+    <div class="section-block accent-sky">
+      <h3>🏡 At the Great Plains Action Society Resilience Hub, Iowa City</h3>
+      <p>810 Maiden Lane is being built as a healing space — land that has been harmed is being
+      actively restored. When you enter, you are entering a living act of repair.</p>
+      <ul style="margin:0.8rem 0 0 1.2rem; font-size:0.95rem;">
+        <li style="margin-bottom:0.5rem">Arrive a few minutes early and orient yourself quietly before others gather.</li>
+        <li style="margin-bottom:0.5rem">Introduce yourself to your host and ask if there are specific protocols for that day.</li>
+        <li style="margin-bottom:0.5rem">Follow the lead of community members — when to sit, when to stand, when to join a circle.</li>
+        <li style="margin-bottom:0.5rem">If there is work to be done, offer to help with the physical tasks — gardening, building, cooking — not just the "learning events."</li>
+        <li style="margin-bottom:0.5rem">The Hub centers Indigenous people, people of color, women, and those historically marginalized. Non-Native visitors are guests, not the audience.</li>
+      </ul>
+      <div class="pull-quote" style="margin-top:1rem">
+        "This land has been harmed. And we're going to continue to heal the land, and with it, heal ourselves."
+        <cite>— Sikowis Nobiss</cite>
+      </div>
+    </div>
+
+    <!-- Session 2 queries -->
+    <div class="section-block">
+      <h3>🌀 Queries for Reflection · Session Two</h3>
+      <ul class="query-list">
+        <li>What did you receive today that you did not expect? What surprised you?</li>
+        <li>When did you feel uncomfortable? What was that discomfort teaching you?</li>
+        <li>When were you tempted to speak when you could have listened? What stopped you (or didn't)?</li>
+        <li>The round dance teaching says "there is no competition in the circle." Where do you bring competition into your faith community — and what would it look like to release it?</li>
+        <li>What is one thing you witnessed or heard that you want to hold for a long while before you speak it to anyone?</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SESSION THREE
+═══════════════════════════════════════════════════════ -->
+<div id="s3" class="tab-panel">
+  <div class="intro-banner" style="background:#4A6741;">
+    <div class="icon">🌿</div>
+    <div>
+      <h2>Session Three: Carrying It Forward</h2>
+      <p>What happens after the visit is what makes it a relationship — not a transaction.</p>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <div class="pull-quote" style="font-size:1.1rem; border-left-color:var(--sage);">
+      "Could you imagine if everybody did something like this? We would be okay."
+      <cite>— Sikowis Nobiss, founder of Great Plains Action Society</cite>
+    </div>
+
+    <!-- The walk -->
+    <div class="section-block accent-red">
+      <h3>🚶 What the March Taught Us About Lasting Relationship</h3>
+      <p>In September 2018, a small group of Native and non-Native people walked 94 miles through Iowa
+      along the route of the Dakota Access Pipeline — from Des Moines to Fort Dodge. The walk took
+      eight days. The purpose wasn't protest alone. It was <em>relationship</em>.</p>
+      <div class="jeff-story" style="margin-top:0.8rem">
+        <div class="jeff-label">Jeff's Story · Session Three</div>
+        "The purpose was to spend the 8 days sharing stories with each other, so we could work on
+        things of common concern. That worked extremely well and various combinations of us have worked
+        on numerous things since." — Jeff Kisling<br><br>
+        The march was not the destination. The connections made during those eight days became the
+        foundation for years of collaborative work: Des Moines Mutual Aid, the Decolonial Repair
+        Network, the Resilience Hub. The walk was a beginning.
+      </div>
+      <div class="pull-quote" style="margin-top:1rem">
+        "This gathering helped to give a sense to everyone that this is about real relationships."
+        <cite>— Eric Anglada, DRN co-founder, 2025</cite>
+      </div>
+    </div>
+
+    <!-- Visitor to ally -->
+    <div class="section-block">
+      <h3>🌉 From Visitor to Ally: What's the Difference?</h3>
+      <p>A visitor takes an experience and returns home to their regular life.
+      An ally returns, shows up for work sessions, gives money, makes phone calls,
+      brings others into relationship, and accepts that this work is lifelong.</p>
+      <div class="pull-quote">
+        "Decolonization is a way of trying to undo, repair and heal the primary injustice
+        on this continent. All of us — Native and non-Native — are haunted in a way and
+        damaged in a way over these five-plus centuries."
+        <cite>— Eric Anglada, Decolonial Repair Network, 2025</cite>
+      </div>
+      <p class="mt-1">The Decolonial Repair Network hosts monthly calls where non-Native allies
+      discuss practical ways to support land return and Indigenous-led initiatives. Members
+      are encouraged to make monthly financial contributions, grow the network, and examine
+      their own family's colonial history.</p>
+      <p class="mt-1" style="font-style:italic; font-size:0.9rem">"This isn't an organization
+      but an organism, and we want to be growing and taking shape as the work unfolds."
+      — Eric Anglada</p>
+    </div>
+
+    <!-- Action items -->
+    <div class="section-block accent-gold">
+      <h3>🛠 Practical Ways to Continue</h3>
+      <div class="action-grid">
+
+        <div class="action-card">
+          <h4>💰 Honor Native Land Fund</h4>
+          <p>A fund created by the Decolonial Repair Network to support the Great Plains Action Society.
+          Monthly donations directly support the Resilience Hub.
+          <br><a href="https://www.honornativelandfund.org" target="_blank">honornativelandfund.org ↗</a></p>
+        </div>
+
+        <div class="action-card">
+          <h4>🌐 Decolonial Repair Network</h4>
+          <p>Monthly calls, community learning, and practical land-back organizing for non-Native allies.
+          <br><a href="https://decolonialrepairnetwork.blog" target="_blank">decolonialrepairnetwork.blog ↗</a></p>
+        </div>
+
+        <div class="action-card">
+          <h4>🌾 GPAS Volunteer Work</h4>
+          <p>The Hub needs hands for gardening, building, cooking, and community events. Physical work
+          is relationship-building.
+          <br><a href="https://www.greatplainsaction.org" target="_blank">greatplainsaction.org ↗</a></p>
+        </div>
+
+        <div class="action-card">
+          <h4>📚 Toward Right Relationship</h4>
+          <p>The Friends-led program founded by Paula Palmer and Jerilyn DeCoteau, helping Quaker
+          meetings tell the truth about our history with Native peoples.
+          <br><a href="https://friendspeaceteams.org/trr/" target="_blank">friendspeaceteams.org ↗</a></p>
+        </div>
+
+        <div class="action-card">
+          <h4>✊ LANDBACK Friends</h4>
+          <p>A network connecting Quaker communities to land-back movements and Indigenous-led
+          initiatives across Turtle Island.
+          <br><a href="https://landbackfriends.com" target="_blank">landbackfriends.com ↗</a></p>
+        </div>
+
+        <div class="action-card">
+          <h4>🕊 Share This Course</h4>
+          <p>The most immediate act of carrying it forward: teach what you have learned to other
+          non-Native people in your meeting, school, or community. You don't need to be an expert.
+          You need to have walked this path first.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bringing it to your meeting -->
+    <div class="section-block accent-sky">
+      <h3>🕊 Bringing the Learning to Your Meeting</h3>
+      <p>The Quaker business process offers a powerful tool: the <em>minute</em>. A meeting can
+      adopt a minute of commitment — to research its involvement in boarding schools, to financially
+      support Indigenous-led land return, or to begin regular education on this history.
+      New England Yearly Meeting adopted such a minute in 2022.</p>
+      <p class="mt-1">But the minute comes after the learning. This course is the learning.
+      Suggest to your meeting's adult education committee that this course become a regular
+      offering — especially before any group visit to the Resilience Hub or other sacred land.</p>
+      <div class="pull-quote" style="margin-top:1rem">
+        "We wanted to move beyond land acknowledgments and teach the real history. It's also
+        important to engage in practical acts of repair."
+        <cite>— Eric Anglada, DRN co-founder</cite>
+      </div>
+    </div>
+
+    <!-- Session 3 queries -->
+    <div class="section-block">
+      <h3>🌀 Queries for the Long Work · Session Three</h3>
+      <ul class="query-list">
+        <li>What is one concrete, time-bound commitment I can make to continue this relationship — not as a visitor, but as an ally?</li>
+        <li>How will I share what I have learned with people who were not present? What are my responsibilities to pass this on?</li>
+        <li>Where is the Spirit calling me in this work? Is that different from where it is convenient to be called?</li>
+        <li>The First Nation–Farmer Climate Unity March took eight days to change relationships that lasted years. What is my equivalent — what am I willing to give time to?</li>
+        <li>If "land is the only thing that is real," what does my relationship to the land I live on say about how I am living?</li>
+      </ul>
+    </div>
+
+    <!-- Closing -->
+    <div class="section-block" style="text-align:center; background:var(--earth); color:var(--cream); border-left-color:var(--gold);">
+      <p style="font-style:italic; font-size:1.1rem; margin-bottom:0.8rem">
+        "The matriarchy makes sure that everybody at the table is fed.<br>
+        It makes sure that everybody is taken care of."
+      </p>
+      <p style="font-size:0.85rem; color:var(--tan)">— Sikowis Nobiss</p>
+      <p style="margin-top:1.2rem; font-size:0.9rem; opacity:0.85">
+        That is the vision. A world where everybody is taken care of.<br>
+        This course is an invitation to become part of making it real.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>Created for Quaker communities and justice-oriented groups preparing to visit sacred and community land.</p>
+  <p style="margin-top:0.5rem">
+    Sources &amp; further reading:
+    <a href="https://www.greatplainsaction.org" target="_blank">Great Plains Action Society</a> ·
+    <a href="https://www.honornativelandfund.org/decolonialrepairnetwork" target="_blank">Decolonial Repair Network</a> ·
+    <a href="https://friendspeaceteams.org/trr/" target="_blank">Toward Right Relationship</a> ·
+    <a href="https://www.decolonizingquakers.org" target="_blank">Decolonizing Quakers</a> ·
+    <a href="https://littlevillagemag.com/spring-equinox-celebration-great-plains-action-hub-iowa-city/" target="_blank">Little Village (GPAS Hub, 2026)</a> ·
+    <a href="https://ictnews.org/news/native-allies-seek-to-heal-primary-injustice-on-this-continent/" target="_blank">ICT: Native Allies (2025)</a>
+  </p>
+  <p style="margin-top:0.5rem; opacity:0.6">
+    This course was prepared for educational use in Quaker communities. Protocols vary between Nations — always ask the specific community you are visiting.
+  </p>
+</footer>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const idx = ['intro','s1','s2','s3'].indexOf(id);
+    document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleTimeline(el) {
+    el.classList.toggle('open');
+  }
+
+  function toggleCheck(el) {
+    el.classList.toggle('checked');
+  }
+</script>
+
+</body>
+</html>
